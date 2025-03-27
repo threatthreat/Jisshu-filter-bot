@@ -43,9 +43,9 @@ SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/stuck_movies') #Support
 #---------------------------------------------------------------
 IS_VERIFY = is_enabled('IS_VERIFY', True)
 #---------------------------------------------------------------
-TUTORIAL = environ.get("TUTORIAL", "https://t.me/")
-TUTORIAL_2 = environ.get("TUTORIAL_2", "https://t.me/")
-TUTORIAL_3 = environ.get("TUTORIAL_3", "https://t.me/")
+TUTORIAL = environ.get("TUTORIAL", "https://t.me/howtoopen_modijiurls")
+TUTORIAL_2 = environ.get("TUTORIAL_2", "https://t.me/howtoopen_modijiurls")
+TUTORIAL_3 = environ.get("TUTORIAL_3", "https://t.me/howtoopen_modijiurls")
 VERIFY_IMG = environ.get("VERIFY_IMG", "https://graph.org/file/1669ab9af68eaa62c3ca4.jpg")
 SHORTENER_API = environ.get("SHORTENER_API", "c2ad0ea9208aa45c6e88a5b97250db084332d17f")
 SHORTENER_WEBSITE = environ.get("SHORTENER_WEBSITE", 'Adcash.in')
