@@ -19,7 +19,7 @@ BOT_TOKEN = environ.get('BOT_TOKEN', '7933550773:AAHaRSIpeoQSCw4XVh1AxiiZ1kSmbo5
 #---------------------------------------------------------------
 #---------------------------------------------------------------
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5482962500').split()]
-USERNAME = environ.get('USERNAME', "https://t.me/") # ADMIN USERNAME
+USERNAME = environ.get('USERNAME', "https://t.me/Grezy8") # ADMIN USERNAME
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002374553598'))
 MOVIE_GROUP_LINK = environ.get('MOVIE_GROUP_LINK', 'https://t.me/moviesandseries36')
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002345626874').split()]
@@ -31,9 +31,9 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', 'My_Tg_files')
 #---------------------------------------------------------------
 #---------------------------------------------------------------
 #----------- There will be channel id add in all these ---------
-LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-1002566775846'))  # set shortner log channel
+LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-1002345626874'))  # set shortner log channel
 DELETE_CHANNELS = int(environ.get('DELETE_CHANNELS','0')) # The movie you upload in it will be deleted from the bot.
-LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '1002566775846'))
+LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '-1002345626874'))
 auth_channel = environ.get('AUTH_CHANNEL', '')
 SUPPORT_GROUP = int(environ.get('SUPPORT_GROUP', '-1002572131699'))
 request_channel = environ.get('REQUEST_CHANNEL', '1002566775846') # If anyone sends a request message to your bot, you will get it in this channel.
@@ -47,12 +47,12 @@ TUTORIAL = environ.get("TUTORIAL", "https://t.me/howtoopen_modijiurls")
 TUTORIAL_2 = environ.get("TUTORIAL_2", "https://t.me/howtoopen_modijiurls")
 TUTORIAL_3 = environ.get("TUTORIAL_3", "https://t.me/howtoopen_modijiurls")
 VERIFY_IMG = environ.get("VERIFY_IMG", "https://graph.org/file/1669ab9af68eaa62c3ca4.jpg")
-SHORTENER_API = environ.get("SHORTENER_API", "350e1c2b56b3162b0259542340b957f200deebe3")
-SHORTENER_WEBSITE = environ.get("SHORTENER_WEBSITE", 'vipurl.in')
-SHORTENER_API2 = environ.get("SHORTENER_API2", "350e1c2b56b3162b0259542340b957f200deebe3")
-SHORTENER_WEBSITE2 = environ.get("SHORTENER_WEBSITE2", 'vipurl.in')
-SHORTENER_API3 = environ.get("SHORTENER_API3", "350e1c2b56b3162b0259542340b957f200deebe3")
-SHORTENER_WEBSITE3 = environ.get("SHORTENER_WEBSITE3", 'vipurl.in')
+SHORTENER_API = environ.get("SHORTENER_API", "221559faa5a0d43dc2da97cc3f6848feff6549c2")
+SHORTENER_WEBSITE = environ.get("SHORTENER_WEBSITE", 'modijiurl.com')
+SHORTENER_API2 = environ.get("SHORTENER_API2", "221559faa5a0d43dc2da97cc3f6848feff6549c2")
+SHORTENER_WEBSITE2 = environ.get("SHORTENER_WEBSITE2", 'modijiurl.com')
+SHORTENER_API3 = environ.get("SHORTENER_API3", "221559faa5a0d43dc2da97cc3f6848feff6549c2")
+SHORTENER_WEBSITE3 = environ.get("SHORTENER_WEBSITE3", 'modijiurl.com')
 TWO_VERIFY_GAP = int(environ.get('TWO_VERIFY_GAP', "14400"))
 THREE_VERIFY_GAP = int(environ.get('THREE_VERIFY_GAP', "14400"))
 #---------------------------------------------------------------
