@@ -25,36 +25,29 @@ async def grp_cmds(client, message):
         text=script.GROUP_C_TEXT,
         reply_markup=InlineKeyboardMarkup(buttons),
         parse_mode=enums.ParseMode.HTML
-        )
-    
-
-@Client.on_message(filters.command("admin_cmds") & filters.user(ADMINS))
-async def admin_cmds(client, message):
-    buttons = []
-    for i in range(0, len(admin_cmds), 2):
-        if i + 1 < len(admin_cmds):
-            buttons.append([KeyboardButton(vp[i]), KeyboardButton(vp[i + 1])])
-        else:
-            buttons.append([KeyboardButton(vp[i])])
-
-    reply_markup = ReplyKeyboardMarkup(buttons, resize_keyboard=True, one_time_keyboard=True)
-   
-    sent_message = await message.reply(
-        "<b>Admin All Commands [auto delete 2 min] 👇</b>",
-        reply_markup=reply_markup,
-    ) 
-    #  2 minutes (120 seconds)
-    await asyncio.sleep(120)
-    await sent_message.delete()
-    await message.delete()
-
+    )
 
 @Client.on_message(filters.command("commands") & filters.user(ADMINS))
 async def set_commands(client, message):
     commands = []
-    for item in vp:
+    for item in cmds:
         for command, description in item.items():
             commands.append(BotCommand(command, description))
-
     await client.set_bot_commands(commands)
     await message.reply("Set command successfully✅ ")
+
+@Client.on_message(filters.command("admin_cmds") & filters.user(ADMINS))
+async def admin_cmds_handler(client, message):
+    try:
+        admin_footer = "\n\nAll These Commands Can Be Used Only By Admins.\n⚡ Powered by @JISSHU_BOTS"        
+        commands_list = "\n".join(f"{i+1}. {cmd}" for i, cmd in enumerate(admin_cmds))
+        sent_message = await message.reply(
+            f"<b>Admin All Commands [auto delete in 2 minutes] 👇</b>\n\n{commands_list}{admin_footer}"
+        )        
+        await asyncio.sleep(120)
+        await sent_message.delete()
+        await message.delete()
+    except Exception as e:
+        print(f"Error in admin_cmds_handler: {e}")
+        await message.reply("An error occurred while displaying admin commands.")
+        
