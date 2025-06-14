@@ -14,9 +14,9 @@ def is_enabled(value, default):
     
 # Main
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ.get('API_ID', ''))
-API_HASH = environ.get('API_HASH', '')
-BOT_TOKEN = environ.get('BOT_TOKEN', '')
+API_ID = int(environ.get('API_ID', '24056594'))
+API_HASH = environ.get('API_HASH', 'bfc57c69715956fc7fffd815ff33ec0d')
+BOT_TOKEN = environ.get('BOT_TOKEN', '7130702839:AAF0sobO9PYGqf1SU9GqfnFNmC4hPhhB6ks')
 PORT = environ.get('PORT', '8082')
 
 # Owners 
@@ -25,22 +25,22 @@ OWNER_USERNAME = environ.get('OWNER_USERNAME', 'IM_JISSHU') # without @ or https
 USERNAME = environ.get('USERNAME', "https://t.me/IM_JISSHU") # ADMIN USERNAME
 
 # Database Channel 
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001942980809 -1002446479008').split()]
 
 # ForceSub Channel & Log Channels
 AUTH_CHANNEL = int(environ.get('AUTH_CHANNEL', '-1002329095900'))
 AUTH_REQ_CHANNEL = int(environ.get('AUTH_REQ_CHANNEL', '-1002329095900'))
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', ''))
-LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '')) 
-LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', ''))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001864434358'))
+LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-1001864434358')) 
+LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '-1001864434358'))
 
 # MongoDB 
-DATABASE_URI = environ.get('DATABASE_URI', "")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://filterbot:filterbot@cluster0.ewxdd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 
 # Files index database url
-FILES_DATABASE = environ.get('FILES_DATABASE', "")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'jisshu')
+FILES_DATABASE = environ.get('FILES_DATABASE', "mongodb+srv://filterbot:filterbot@cluster0.ewxdd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'anonymous')
 
 # Other Channel's
 SUPPORT_GROUP = int(environ.get('SUPPORT_GROUP', '-1001864434358'))
