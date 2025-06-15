@@ -1,14 +1,30 @@
+
 <p align="center">
   <img src="https://i.ibb.co/qpxpGmC/image.jpg" alt="Jisshu-Auto-filter">
 </p>
-<h1 align="center">
-  <a href="https://telegram.me/JISSHU_BOTS">Jisshu Auto Filter Bot</a>
-</h1>
-<img src="https://cdn.jsdelivr.net/gh/Jisshubot/Jisshubot/resources/hr.gif"/>
 
-## **𝐶𝑜𝑚𝑚𝑎𝑛𝑑𝑠**
+### 🤖 ***Bot Commands***
 
-`/commands` Enter this command inside the bot and all the commands will be set automatically.
+<details><summary> <code>/commands</code> Enter this command inside the bot and all the commands will be set automatically.</summary>
+  
+  ```
+start - Start The Bot  
+most - Get Most Searches Button List  
+trend - Get Top Trending Button List  
+mostlist - Show Most Searches List  
+trendlist - 𝖦𝖾𝗍 𝖳𝗈𝗉 𝖳𝗋𝖾𝗇𝖽𝗂𝗇𝗀 𝖡𝗎𝗍𝗍𝗈𝗇 𝖫𝗂𝗌𝗍  
+plan - Check Available Premium Membership Plans  
+myplan - Check Your Current Plan  
+refer - To Refer Your Friend And Get Premium  
+stats - Check My Database  
+id - Get Telegram Id  
+font - To Generate Cool Fonts  
+details - Check Group Details  
+settings - Change Bot Setting  
+grp_cmds - Check Group Commands  
+admin_cmds - Bot Admin Commands
+  ```
+</details>
 <img src="https://cdn.jsdelivr.net/gh/Jisshubot/Jisshubot/resources/hr.gif"/>
 
 ## **Futures**
@@ -69,7 +85,7 @@
 * `API_HASH`: Get this value from [telegram.org](https://my.telegram.org/apps)
 * `CHANNELS`: ID of channel for Auto Indexing. Separate multiple IDs by space. Make sure bot is admin.
 * `ADMINS`: ID of Admin. Separate multiple Admins by space.
-* `DATABASE_URI`: [mongoDB](https://www.mongodb.com) URI. Get this value from [mongoDB](https://www.mongodb.com). For more help watch this [video](https://youtu.be/1G1XwEOnxxo)
+* `DATABASE_URI` | `FILES_DATABASE`: [mongoDB](https://www.mongodb.com) URI. Get this value from [mongoDB](https://www.mongodb.com). For more help watch this [video](https://youtu.be/1G1XwEOnxxo)
 * `DATABASE_NAME`: Name of the database in [mongoDB](https://www.mongodb.com).
 * `LOG_CHANNEL` : A channel to log the activities of bot. Make sure bot is an admin in the channel.
 <img src="https://cdn.jsdelivr.net/gh/Jisshubot/Jisshubot/resources/hr.gif"/>
@@ -136,19 +152,20 @@ python3 bot.py
 
 <img src="https://cdn.jsdelivr.net/gh/Jisshubot/Jisshubot/resources/hr.gif"/>
 
+# ! Errors 
+- This Repository May Contain Some Errors. If You Encounter Any Issues, Please Let Us Know, And We Will Do Our Best To Resolve Them.
+<p align="center">
+  <a href="https://t.me/Jisshu_support">
+    <img src="https://img.shields.io/badge/Report-Error-red?style=for-the-badge&logo=telegram" alt="Report Error">
+  </a>
+</p>
 
-## **Thanks to** 
- - <b>Thanks To [Zishan Khan](https://t.me/JISSHU_BOTS) To Modify And Add Amazing Feature In The Repo
- - Thanks To [biisal](https://github.com/biisal/biisal-filter-bot) For Base Repo
- - Thanks To [Ꭺɴᴏɴʏᴍᴏᴜꜱ](https://t.me/TG_Anonymous_Official) To refresh Future Code and Update premium future</b>
- - Thanks To [Zoro](https://t.me/JOYBOY_ZORO) Your ideas have been a huge help in improving this project. Thanks for your valuable input!
- - Thanks To [ɪᴛ'ꜱ ʟᴜғғʏ](https://t.me/CoderluffyTG) For fixing key errors and making the bot better. Your help has been truly appreciated!
- - Thanks To All Everyone In This Journey
- <img src="https://cdn.jsdelivr.net/gh/Jisshubot/Jisshubot/resources/hr.gif"/>
+## Our Valuable Contributors ❤️✨
+[![Contributors](https://contrib.rocks/image?repo=Jisshubot/Jisshu-filter-bot)](https://github.com/Jisshubot/Jisshu-filter-bot/graphs/contributors)
 
-<img src="https://github.com/Jisshubot/Jisshubot/blob/master/resources/hr.gif"/>
-<h1> <img src="https://cdn.jsdelivr.net/gh/Jisshubot/JISSHU_BOTS/Logo/Jisshu.png" width="70px" style="border-radius: 50%"> ᴄᴏɴᴛᴀᴄᴛ ᴍᴇ </h1>
-  
-[<img src="https://raw.githubusercontent.com/Jisshubot/Jisshubot/master/resources/telegram_icon.png" width="60px">](https://telegram.im/@JISSHU_BOTS) [<img src="https://raw.githubusercontent.com/AnonymousX1025/AnonymousX1025/master/resources/github_icon.png" width="60px">](https://github.com/Jisshubot) [<img src="https://raw.githubusercontent.com/AnonymousX1025/AnonymousX1025/master/resources/youtube_icon.png" width="60px">](https://www.youtube.com/@JISSHU-BOTS) [<img src="https://github.com/AnonymousX1025/AnonymousX1025/blob/master/resources/insta_icon.png" width="60px">](https://instagram.com/Zishan_khan565)
+# 📌 Credits
+- **Thank You To All [Contributors](https://github.com/Jisshubot/Jisshu-filter-bot/graphs/contributors) For Your Valuable Contributions To This Repository!**
 
-<img src="https://cdn.jsdelivr.net/gh/Jisshubot/Jisshubot/resources/hr.gif"/>
+## Disclaimer
+
+This repository is provided solely for educational purposes. It is not intended for personal or commercial use. Use of this repository and its code is entirely at your own risk. The authors and contributors disclaim any responsibility or liability for misuse or for any loss or damage resulting from the use of this project.

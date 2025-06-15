@@ -1,21 +1,50 @@
-MIT License
+MIT License  
+MIT लाइसेंस  
 
-Copyright (c) 2024 Biisal
+Copyright (c) 2025 JISSHU BOTS  
+कॉपीराइट (c) 2025 JISSHU BOTS  
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy  
+यह अनुमति नि:शुल्क दी जाती है, कि कोई भी व्यक्ति जो इस सॉफ़्टवेयर की एक प्रति प्राप्त करता है,  
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+of this software and associated documentation files (the "Software"),  
+और उससे संबंधित प्रलेखन फ़ाइलों ("सॉफ़्टवेयर"),  
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+to deal in the Software without restriction, including without limitation the rights  
+उस सॉफ़्टवेयर से बिना किसी प्रतिबंध के व्यवहार कर सकता है, जिसमें निम्नलिखित अधिकार शामिल हैं लेकिन इन्हीं तक सीमित नहीं हैं:  
+
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  
+सॉफ़्टवेयर का उपयोग करना, कॉपी करना, संशोधित करना, विलय करना, प्रकाशित करना, वितरित करना, सब-लाइसेंस देना, और/या बेचना,  
+
+copies of the Software, and to permit persons to whom the Software is  
+सॉफ़्टवेयर की प्रतियां, और उन्हें अनुमति देना जिन्हें यह सॉफ़्टवेयर प्रदान किया गया है,  
+
+furnished to do so, subject to the following conditions:  
+कि वे भी ऐसा कर सकें, निम्नलिखित शर्तों के अधीन:  
+
+The above copyright notice and this permission notice  
+उपरोक्त कॉपीराइट नोटिस और यह अनुमति नोटिस  
+
+shall be included in all copies or substantial portions of the Software.  
+सॉफ़्टवेयर की सभी प्रतियों या इसके महत्वपूर्ण हिस्सों में शामिल किया जाना चाहिए।  
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,  
+यह सॉफ़्टवेयर "जैसा है" के आधार पर प्रदान किया गया है, बिना किसी प्रकार की वारंटी के,  
+
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF  
+चाहे वह स्पष्ट हो या अप्रत्यक्ष, जिसमें लेकिन सीमित नहीं है वारंटी जैसे कि—  
+
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  
+व्यावसायिक योग्यता, किसी विशेष उद्देश्य के लिए उपयुक्तता और अधिकारों का उल्लंघन न होना।  
+
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,  
+किसी भी स्थिति में लेखक या कॉपीराइट धारक किसी दावे के लिए उत्तरदायी नहीं होंगे,  
+
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,  
+न ही किसी क्षति या अन्य उत्तरदायित्व के लिए, चाहे वह अनुबंध, टॉर्ट या किसी अन्य कार्रवाई में हो,  
+
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE  
+जो इस सॉफ़्टवेयर के उपयोग, संचालन या इसके साथ अन्य व्यवहार से उत्पन्न हो,  
+
+OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  
+या इसके उपयोग या व्यवहार के कारण हुआ हो।
