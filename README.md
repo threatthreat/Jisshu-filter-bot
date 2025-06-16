@@ -160,12 +160,9 @@ python3 bot.py
   </a>
 </p>
 
-## Our Valuable Contributors ❤️✨
-[![Contributors](https://contrib.rocks/image?repo=Jisshubot/Jisshu-filter-bot)](https://github.com/Jisshubot/Jisshu-filter-bot/graphs/contributors)
-
 # 📌 Credits
 - **Thank You To All [Contributors](https://github.com/Jisshubot/Jisshu-filter-bot/graphs/contributors) For Your Valuable Contributions To This Repository!**
 
 ## Disclaimer
 
-This repository is provided solely for educational purposes. It is not intended for personal or commercial use. Use of this repository and its code is entirely at your own risk. The authors and contributors disclaim any responsibility or liability for misuse or for any loss or damage resulting from the use of this project.
+This Repository Is Provided For Educational Purposes Only. It Is Not Intended For Personal Or Commercial Gain. Use Of This Repository And The Code Within Is At Your Own Risk. The Authors And Contributors Are Not Responsible For Any Misuse Or Damage Caused By The Use Of This Project.
