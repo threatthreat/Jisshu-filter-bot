@@ -22,14 +22,14 @@ PORT = environ.get('PORT', '8082')
 # Owners 
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5672857559').split()]
 OWNER_USERNAME = environ.get('OWNER_USERNAME', 'IM_JISSHU') # without @ or https://t.me/ 
-USERNAME = environ.get('USERNAME', "https://t.me/IM_JISSHU") # ADMIN USERNAME
+USERNAME = environ.get('USERNAME', "") # ADMIN USERNAME
 
 # Database Channel 
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001942980809 -1002446479008').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '').split()]
 
 # ForceSub Channel & Log Channels
-AUTH_CHANNEL = int(environ.get('AUTH_CHANNEL', '-1002329095900'))
-AUTH_REQ_CHANNEL = int(environ.get('AUTH_REQ_CHANNEL', '-1002329095900'))
+AUTH_CHANNEL = int(environ.get('AUTH_CHANNEL', ''))
+AUTH_REQ_CHANNEL = int(environ.get('AUTH_REQ_CHANNEL', ''))
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', ''))
 LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '')) 
 LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', ''))
@@ -50,8 +50,8 @@ REQUEST_CHANNEL = int(request_channel) if request_channel and id_pattern.search(
 MOVIE_UPDATE_CHANNEL = int(environ.get('MOVIE_UPDATE_CHANNEL', '-1001864434358')) 
 
 # Added Link Here Not Id 
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/Jisshu_support')
-MOVIE_GROUP_LINK = environ.get('MOVIE_GROUP_LINK', 'https://t.me/JisshuMovieZone')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', '')
+MOVIE_GROUP_LINK = environ.get('MOVIE_GROUP_LINK', '')
 
 # Verification
 IS_VERIFY = is_enabled('IS_VERIFY', False)
@@ -98,7 +98,7 @@ LONG_IMDB_DESCRIPTION = is_enabled('LONG_IMDB_DESCRIPTION', False)
 PROTECT_CONTENT = is_enabled('PROTECT_CONTENT', False)
 SPELL_CHECK = is_enabled('SPELL_CHECK', True)
 LINK_MODE = is_enabled('LINK_MODE', True)
-TMDB_API_KEY = environ.get("TMDB_API_KEY", "6abcb6bb99fb77f33c37016a28866ed2")
+TMDB_API_KEY = environ.get("TMDB_API_KEY", "")
 
 # Online Streaming And Download 
 STREAM_MODE = bool(environ.get('STREAM_MODE', True)) # Set True or Flase
@@ -110,7 +110,7 @@ if 'DYNO' in environ:
     ON_HEROKU = True
 else:
     ON_HEROKU = False
-URL = environ.get("FQDN", "https://jisshu-filter-065411841258.herokuapp.com/")
+URL = environ.get("FQDN", "")
 
 # Commands
 admin_cmds = [
