@@ -5,7 +5,6 @@ from Jisshu.bot import JisshuBot
 from Jisshu.util.human_readable import humanbytes
 from Jisshu.util.file_properties import get_file_ids
 from Jisshu.server.exceptions import InvalidHash
-from Template import jisshu_template
 import urllib.parse
 import logging
 import aiohttp
