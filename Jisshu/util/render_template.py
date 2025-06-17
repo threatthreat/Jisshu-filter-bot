@@ -22,7 +22,7 @@ async def render_page(id, secure_hash, src=None):
         f"{id}/{urllib.parse.quote_plus(file_data.file_name)}?hash={secure_hash}",
     )
 
-    tg_button = f"https://telegram.dog/{temp.U_NAME}"
+    tg_button = f"https://t.me/{temp.U_NAME}"
     
     tag = file_data.mime_type.split("/")[0].strip()
     file_size = humanbytes(file_data.file_size)
