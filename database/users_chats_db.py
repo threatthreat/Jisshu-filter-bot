@@ -40,7 +40,7 @@ class Database:
             'api_two': SHORTENER_API2,
             'log': LOG_VR_CHANNEL,
             'imdb': IMDB,
-            'fsub_id': AUTH_CHANNEL,
+            'fsub_id': AUTH_CHANNELS[0],
             'link': LINK_MODE, 
             'is_verify': IS_VERIFY, 
             'verify_time': TWO_VERIFY_GAP,
