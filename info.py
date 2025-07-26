@@ -14,25 +14,25 @@ def is_enabled(value, default):
     
 # Main
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ.get('API_ID', ''))
-API_HASH = environ.get('API_HASH', '')
+API_ID = int(environ.get('API_ID', '24678350'))
+API_HASH = environ.get('API_HASH', 'f3a8d4d92120e39e8d7bfeb86313758e')
 BOT_TOKEN = environ.get('BOT_TOKEN', '')
 PORT = environ.get('PORT', '8082')
 
 # Owners 
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5672857559').split()]
-OWNER_USERNAME = environ.get('OWNER_USERNAME', 'IM_JISSHU') # without @ or https://t.me/ 
-USERNAME = environ.get('USERNAME', "") # ADMIN USERNAME
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5482962500').split()]
+OWNER_USERNAME = environ.get('OWNER_USERNAME', 'TylerDurden_T4') # without @ or https://t.me/ 
+USERNAME = environ.get('USERNAME', "TylerDurden_T4") # ADMIN USERNAME
 
 # Database Channel 
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002345626874').split()]
 
 # ForceSub Channel & Log Channels
-AUTH_CHANNEL = int(environ.get('AUTH_CHANNEL', ''))
-AUTH_REQ_CHANNEL = int(environ.get('AUTH_REQ_CHANNEL', ''))
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', ''))
-LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '')) 
-LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', ''))
+AUTH_CHANNEL = int(environ.get('AUTH_CHANNEL', '-1002275381683'))
+AUTH_REQ_CHANNEL = int(environ.get('AUTH_REQ_CHANNEL', '-1002275381683'))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002374553598'))
+LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-1002660868246')) 
+LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '-1002511122975'))
 
 # MongoDB 
 DATABASE_URI = environ.get('DATABASE_URI', "")
@@ -40,31 +40,31 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 
 # Files index database url
 FILES_DATABASE = environ.get('FILES_DATABASE', "")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'jisshu')
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'darken')
 
 # Other Channel's
-SUPPORT_GROUP = int(environ.get('SUPPORT_GROUP', '-1001864434358'))
-DELETE_CHANNELS = int(environ.get('DELETE_CHANNELS','0'))
-request_channel = environ.get('REQUEST_CHANNEL', '-1001864434358') 
+SUPPORT_GROUP = int(environ.get('SUPPORT_GROUP', '-1002587184746'))
+DELETE_CHANNELS = int(environ.get('DELETE_CHANNELS','-1002267689123'))
+request_channel = environ.get('REQUEST_CHANNEL', '-1002255660292') 
 REQUEST_CHANNEL = int(request_channel) if request_channel and id_pattern.search(request_channel) else None
 MOVIE_UPDATE_CHANNEL = int(environ.get('MOVIE_UPDATE_CHANNEL', '-1001864434358')) 
 
 # Added Link Here Not Id 
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', '')
-MOVIE_GROUP_LINK = environ.get('MOVIE_GROUP_LINK', '')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/super_chat70')
+MOVIE_GROUP_LINK = environ.get('MOVIE_GROUP_LINK', 'https://t.me/Moviesandseries36')
 
 # Verification
-IS_VERIFY = is_enabled('IS_VERIFY', False)
-TUTORIAL = environ.get("TUTORIAL", "https://t.me/")
-TUTORIAL_2 = environ.get("TUTORIAL_2", "https://t.me/")
-TUTORIAL_3 = environ.get("TUTORIAL_3", "https://t.me/")
+IS_VERIFY = is_enabled('IS_VERIFY', True)
+TUTORIAL = environ.get("TUTORIAL", "https://t.me/Bombardiro_Crocodiloa")
+TUTORIAL_2 = environ.get("TUTORIAL_2", "https://t.me/Bombardiro_Crocodiloa")
+TUTORIAL_3 = environ.get("TUTORIAL_3", "https://t.me/Bombardiro_Crocodiloa")
 VERIFY_IMG = environ.get("VERIFY_IMG", "https://graph.org/file/1669ab9af68eaa62c3ca4.jpg")
-SHORTENER_API = environ.get("SHORTENER_API", "fcee6bbc628cfc61229a2d808e1b0ee3315a0f5e")
-SHORTENER_WEBSITE = environ.get("SHORTENER_WEBSITE", 'linkmonetizer.in')
-SHORTENER_API2 = environ.get("SHORTENER_API2", "fcee6bbc628cfc61229a2d808e1b0ee3315a0f5e")
-SHORTENER_WEBSITE2 = environ.get("SHORTENER_WEBSITE2", 'linkmonetizer.in')
-SHORTENER_API3 = environ.get("SHORTENER_API3", "fcee6bbc628cfc61229a2d808e1b0ee3315a0f5e")
-SHORTENER_WEBSITE3 = environ.get("SHORTENER_WEBSITE3", 'linkmonetizer.in')
+SHORTENER_API = environ.get("SHORTENER_API", "54528f37e15baa266842ef63286e58ca152896cb")
+SHORTENER_WEBSITE = environ.get("SHORTENER_WEBSITE", 'softurl.in')
+SHORTENER_API2 = environ.get("SHORTENER_API2", "54528f37e15baa266842ef63286e58ca152896cb")
+SHORTENER_WEBSITE2 = environ.get("SHORTENER_WEBSITE2", 'softurl.in')
+SHORTENER_API3 = environ.get("SHORTENER_API3", "54528f37e15baa266842ef63286e58ca152896cb")
+SHORTENER_WEBSITE3 = environ.get("SHORTENER_WEBSITE3", 'softurl.in')
 TWO_VERIFY_GAP = int(environ.get('TWO_VERIFY_GAP', "14400"))
 THREE_VERIFY_GAP = int(environ.get('THREE_VERIFY_GAP', "14400"))
 
