@@ -190,60 +190,67 @@ async def start(client:Client, message):
             await db.update_value(message.from_user.id, "seen_ads", False)
         return
 
+    if len(message.command) < 2:
+        return
+
     data = message.command[1]
-try:
-    pre, grp_id, file_id = data.split('_', 2)
-    print(f"Group Id - {grp_id}")
-except:
-    pre, grp_id, file_id = "", 0, data
-
-settings = await get_settings(int(grp_id))
-fsub_id = settings.get('fsub_id', AUTH_CHANNELS)
-
-# Normalize to list
-if isinstance(fsub_id, int):
-    fsub_channels = [fsub_id]
-elif isinstance(fsub_id, list):
-    fsub_channels = fsub_id
-else:
-    fsub_channels = [int(i) for i in str(fsub_id).split()]
-
-# Add default channels
-fsub_channels += AUTH_CHANNELS + AUTH_REQ_CHANNELS
-fsub_channels = list(set(fsub_channels))  # Remove duplicates
-
-btn = []
-i = 1
-
-for ch_id in fsub_channels:
     try:
-        if ch_id in AUTH_REQ_CHANNELS:
-            if not await is_req_subscribed(client, message, ch_id):
-                invite = await client.create_chat_invite_link(ch_id, creates_join_request=True)
-                btn.append([InlineKeyboardButton(f"⛔️ ᴊᴏɪɴ ɴᴏᴡ channel {i} ⛔️", url=invite.invite_link)])
-        else:
-            if not await is_subscribed(client, message.from_user.id, ch_id):
-                invite = await client.create_chat_invite_link(ch_id)
-                btn.append([InlineKeyboardButton(f"⛔️ ᴊᴏɪɴ ɴᴏᴡ channel {i} ⛔️", url=invite.invite_link)])
-        i += 1
-    except ChatAdminRequired:
-        logger.warning(f"Bot is not admin in channel {ch_id}")
-        continue
+        pre, grp_id, file_id = data.split('_', 2)
+        print(f"Group Id - {grp_id}")
+    except:
+        pre, grp_id, file_id = "", 0, data
 
-# Retry button
-if btn and message.command[1] != "subscribe":
-    btn.append([InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+    try:
+        settings = await get_settings(int(grp_id))
+    except:
+        settings = {}
 
-# Show force-sub message if needed
-if btn:
-    await client.send_photo(
-        chat_id=message.from_user.id,
-        photo=FORCESUB_IMG,
-        caption=script.FORCESUB_TEXT,
-        reply_markup=InlineKeyboardMarkup(btn),
-        parse_mode=enums.ParseMode.HTML
-    )
-    return        
+    fsub_id = settings.get('fsub_id', AUTH_CHANNELS)
+
+    # Normalize to list
+    if isinstance(fsub_id, int):
+        fsub_channels = [fsub_id]
+    elif isinstance(fsub_id, list):
+        fsub_channels = fsub_id
+    else:
+        fsub_channels = [int(i) for i in str(fsub_id).split() if i.strip().isdigit()]
+
+    # Add default channels
+    fsub_channels += AUTH_CHANNELS + AUTH_REQ_CHANNELS
+    fsub_channels = list(set(fsub_channels))  # Remove duplicates
+
+    btn = []
+    i = 1
+
+    for ch_id in fsub_channels:
+        try:
+            if ch_id in AUTH_REQ_CHANNELS:
+                if not await is_req_subscribed(client, message, ch_id):
+                    invite = await client.create_chat_invite_link(ch_id, creates_join_request=True)
+                    btn.append([InlineKeyboardButton(f"⛔️ ᴊᴏɪɴ ɴᴏᴡ channel {i} ⛔️", url=invite.invite_link)])
+            else:
+                if not await is_subscribed(client, message.from_user.id, ch_id):
+                    invite = await client.create_chat_invite_link(ch_id)
+                    btn.append([InlineKeyboardButton(f"⛔️ ᴊᴏɪɴ ɴᴏᴡ channel {i} ⛔️", url=invite.invite_link)])
+            i += 1
+        except ChatAdminRequired:
+            logger.warning(f"Bot is not admin in channel {ch_id}")
+            continue
+
+    # Retry button
+    if btn and message.command[1] != "subscribe":
+        btn.append([InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+
+    # Show force-sub message if needed
+    if btn:
+        await client.send_photo(
+            chat_id=message.from_user.id,
+            photo=FORCESUB_IMG,
+            caption=script.FORCESUB_TEXT,
+            reply_markup=InlineKeyboardMarkup(btn),
+            parse_mode=enums.ParseMode.HTML
+        )
+        return        
             
     user_id = m.from_user.id
     if not await db.has_premium_access(user_id):
