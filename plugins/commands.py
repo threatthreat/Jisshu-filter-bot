@@ -190,9 +190,6 @@ async def start(client:Client, message):
             await db.update_value(message.from_user.id, "seen_ads", False)
         return
 
-    if len(message.command) < 2:
-        return
-
     data = message.command[1]
     try:
         pre, grp_id, file_id = data.split('_', 2)
@@ -200,48 +197,44 @@ async def start(client:Client, message):
     except:
         pre, grp_id, file_id = "", 0, data
 
-    try:
-        settings = await get_settings(int(grp_id))
-    except:
-        settings = {}
-
+    settings = await get_settings(int(grp_id))
     fsub_id = settings.get('fsub_id', AUTH_CHANNELS)
 
-    # Normalize to list
+    # Convert to list if single int stored in DB
     if isinstance(fsub_id, int):
         fsub_channels = [fsub_id]
     elif isinstance(fsub_id, list):
         fsub_channels = fsub_id
     else:
-        fsub_channels = [int(i) for i in str(fsub_id).split() if i.strip().isdigit()]
-
-    # Add default channels
-    fsub_channels += AUTH_CHANNELS + AUTH_REQ_CHANNELS
-    fsub_channels = list(set(fsub_channels))  # Remove duplicates
+        fsub_channels = [int(i) for i in str(fsub_id).split()]
 
     btn = []
-    i = 1
 
+    # Check custom fsub channels
     for ch_id in fsub_channels:
         try:
-            if ch_id in AUTH_REQ_CHANNELS:
-                if not await is_req_subscribed(client, message, ch_id):
-                    invite = await client.create_chat_invite_link(ch_id, creates_join_request=True)
-                    btn.append([InlineKeyboardButton(f"⛔️ ᴊᴏɪɴ ɴᴏᴡ channel {i} ⛔️", url=invite.invite_link)])
-            else:
-                if not await is_subscribed(client, message.from_user.id, ch_id):
-                    invite = await client.create_chat_invite_link(ch_id)
-                    btn.append([InlineKeyboardButton(f"⛔️ ᴊᴏɪɴ ɴᴏᴡ channel {i} ⛔️", url=invite.invite_link)])
-            i += 1
+            if not await is_subscribed(client, message.from_user.id, ch_id):
+                invite = await client.create_chat_invite_link(ch_id)
+                btn.append([InlineKeyboardButton("⛔️ ᴊᴏɪɴ ɴᴏᴡ ⛔️", url=invite.invite_link)])
         except ChatAdminRequired:
             logger.warning(f"Bot is not admin in channel {ch_id}")
+            continue
+
+    # Check default force-sub channels
+    for req_id in AUTH_REQ_CHANNELS:
+        try:
+            if not await is_req_subscribed(client, message):
+                invite = await client.create_chat_invite_link(req_id, creates_join_request=True)
+                btn.append([InlineKeyboardButton("⛔️ ᴊᴏɪɴ ɴᴏᴡ ⛔️", url=invite.invite_link)])
+        except ChatAdminRequired:
+            logger.warning(f"Bot is not admin in AUTH_REQ_CHANNEL {req_id}")
             continue
 
     # Retry button
     if btn and message.command[1] != "subscribe":
         btn.append([InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
 
-    # Show force-sub message if needed
+    # If needed, show fsub message
     if btn:
         await client.send_photo(
             chat_id=message.from_user.id,
