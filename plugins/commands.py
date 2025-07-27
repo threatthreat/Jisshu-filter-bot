@@ -190,7 +190,7 @@ async def start(client:Client, message):
             await db.update_value(message.from_user.id, "seen_ads", False)
         return
 
-    data = message.command[1] if len(message.command) > 1 else ""
+        data = message.command[1] if len(message.command) > 1 else ""
     try:
         pre, grp_id, file_id = data.split('_', 2)
         print(f"Group Id - {grp_id}")
@@ -204,7 +204,7 @@ async def start(client:Client, message):
 
     fsub_id = settings.get('fsub_id', AUTH_CHANNELS)
 
-    # Convert to list
+    # Normalize all force-sub channels into one list
     if isinstance(fsub_id, int):
         fsub_channels = [fsub_id]
     elif isinstance(fsub_id, list):
@@ -212,13 +212,13 @@ async def start(client:Client, message):
     else:
         fsub_channels = [int(i) for i in str(fsub_id).split() if i.strip().isdigit()]
 
-    # Add default channels
     fsub_channels += AUTH_CHANNELS + AUTH_REQ_CHANNELS
     fsub_channels = list(set(fsub_channels))  # Remove duplicates
 
     btn = []
     i = 1
     user_id = message.from_user.id
+    force_block = False
 
     for ch_id in fsub_channels:
         try:
@@ -226,21 +226,19 @@ async def start(client:Client, message):
                 if not await is_req_subscribed(client, message, ch_id):
                     invite = await client.create_chat_invite_link(ch_id, creates_join_request=True)
                     btn.append([InlineKeyboardButton(f"⛔️ ᴊᴏɪɴ ɴᴏᴡ channel {i} ⛔️", url=invite.invite_link)])
+                    force_block = True
             else:
                 if not await is_subscribed(client, user_id, ch_id):
                     invite = await client.create_chat_invite_link(ch_id)
                     btn.append([InlineKeyboardButton(f"⛔️ ᴊᴏɪɴ ɴᴏᴡ channel {i} ⛔️", url=invite.invite_link)])
+                    force_block = True
             i += 1
         except ChatAdminRequired:
             logger.warning(f"Bot is not admin in channel {ch_id}")
             continue
 
-    if btn and data != "subscribe":
-        btn.append([
-            InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", url=f"https://t.me/{temp.U_NAME}?start={data}")
-        ])
-
-    if btn:
+    if force_block:
+        btn.append([InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", url=f"https://t.me/{temp.U_NAME}?start={data}")])
         await client.send_photo(
             chat_id=user_id,
             photo=FORCESUB_IMG,
@@ -249,6 +247,11 @@ async def start(client:Client, message):
             parse_mode=enums.ParseMode.HTML
         )
         return
+
+    # If user passed all FSub checks, proceed to send movie/files
+    if pre in ["file", "allfiles"]:
+        message.text = f"{pre}_{grp_id}_{file_id}"
+        await auto_filter(client, message)
                     
     user_id = m.from_user.id
     if not await db.has_premium_access(user_id):
