@@ -190,17 +190,21 @@ async def start(client:Client, message):
             await db.update_value(message.from_user.id, "seen_ads", False)
         return
 
-     data = message.command[1] if len(message.command) > 1 else ""
+    data = message.command[1] if len(message.command) > 1 else ""
     try:
         pre, grp_id, file_id = data.split('_', 2)
         print(f"Group Id - {grp_id}")
     except:
         pre, grp_id, file_id = "", 0, data
 
-    settings = await get_settings(int(grp_id))
+    try:
+        settings = await get_settings(int(grp_id))
+    except:
+        settings = {}
+
     fsub_id = settings.get('fsub_id', AUTH_CHANNELS)
 
-    # Normalize fsub_id to a list
+    # Convert to list
     if isinstance(fsub_id, int):
         fsub_channels = [fsub_id]
     elif isinstance(fsub_id, list):
@@ -208,9 +212,9 @@ async def start(client:Client, message):
     else:
         fsub_channels = [int(i) for i in str(fsub_id).split() if i.strip().isdigit()]
 
-    # Merge with defaults and remove duplicates
+    # Add default channels
     fsub_channels += AUTH_CHANNELS + AUTH_REQ_CHANNELS
-    fsub_channels = list(set(fsub_channels))
+    fsub_channels = list(set(fsub_channels))  # Remove duplicates
 
     btn = []
     i = 1
@@ -231,12 +235,9 @@ async def start(client:Client, message):
             logger.warning(f"Bot is not admin in channel {ch_id}")
             continue
 
-    if btn and message.command[1] != "subscribe":
+    if btn and data != "subscribe":
         btn.append([
-            InlineKeyboardButton(
-                "♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️",
-                url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}"
-            )
+            InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", url=f"https://t.me/{temp.U_NAME}?start={data}")
         ])
 
     if btn:
