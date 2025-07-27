@@ -190,10 +190,10 @@ async def start(client:Client, message):
             await db.update_value(message.from_user.id, "seen_ads", False)
         return
 
-        data = message.command[1] if len(message.command) > 1 else ""
+           # ─── Final Step: Force-Sub Check Before File Delivery ───
+    data = message.command[1] if len(message.command) > 1 else ""
     try:
         pre, grp_id, file_id = data.split('_', 2)
-        print(f"Group Id - {grp_id}")
     except:
         pre, grp_id, file_id = "", 0, data
 
@@ -204,7 +204,7 @@ async def start(client:Client, message):
 
     fsub_id = settings.get('fsub_id', AUTH_CHANNELS)
 
-    # Normalize all force-sub channels into one list
+    # Normalize all channels into one list
     if isinstance(fsub_id, int):
         fsub_channels = [fsub_id]
     elif isinstance(fsub_id, list):
@@ -237,6 +237,7 @@ async def start(client:Client, message):
             logger.warning(f"Bot is not admin in channel {ch_id}")
             continue
 
+    # If user not joined any channel, force them to join
     if force_block:
         btn.append([InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", url=f"https://t.me/{temp.U_NAME}?start={data}")])
         await client.send_photo(
@@ -248,7 +249,7 @@ async def start(client:Client, message):
         )
         return
 
-    # If user passed all FSub checks, proceed to send movie/files
+    # 🔄 If no force-block, continue sending file
     if pre in ["file", "allfiles"]:
         message.text = f"{pre}_{grp_id}_{file_id}"
         await auto_filter(client, message)
